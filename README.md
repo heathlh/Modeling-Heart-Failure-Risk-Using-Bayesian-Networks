@@ -128,7 +128,9 @@ synthetic_data = sampler.rejection_sample(
 The Bayesian Network provides:
 
 ✔ **Strong Performance** – AUC 0.916, Brier 0.125
+
 ✔ **Full Interpretability** – Clinician-friendly reasoning
+
 ✔ **Generative Power** – Synthetic data for simulation & analysis
 
 BNs are a **transparent, reliable, and clinically aligned** alternative to black-box models for medical decision support.
