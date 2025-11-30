@@ -85,7 +85,7 @@ The BN proved highly competitive, particularly in terms of probabilistic reliabi
 
   * [cite\_start]**Scenario 2: Young, Healthy ECG**[cite: 88]:
 
-      * [cite\_start]Evidence: $\text{Age} < 40$ AND $\text{ST\_Slope} = \text{Up}$ AND $\text{Oldpeak} \le 0$ [cite: 89]
+      * [cite\_start]Evidence: $\text{Age} < 40$ AND $\text{ST_Slope} = \text{Up}$ AND $\text{Oldpeak} \le 0$ [cite: 89]
       * [cite\_start]$P(\text{HeartDisease} = 1 \mid \text{Evidence}) = 0.265$ [cite: 90]
       * [cite\_start]*(Protective factors significantly lower the estimated risk, providing transparent justification.)* [cite: 91]
 
