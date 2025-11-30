@@ -1,131 +1,136 @@
-# 🩺 Modeling Heart Failure Risk Using Bayesian Networks
+# 🩺 **Modeling Heart Failure Risk Using Bayesian Networks**
 
-[cite\_start]A Transparent and Probabilistic Approach to Clinical Decision Support (ADSP 32014 IP01: Bayesian Machine Learning) [cite: 2, 4]
-
-## Project Overview
-
-[cite\_start]This project explores the use of **Bayesian Networks (BN)** for heart disease risk prediction using the Heart Failure Prediction Dataset (Kaggle)[cite: 25]. [cite\_start]In high-stakes domains like clinical risk assessment, **interpretability** and **uncertainty quantification** are critical, yet often lacking in traditional "black-box" machine learning models[cite: 10, 14].
-
-[cite\_start]Our primary goal was to develop a **transparent, probabilistic model** that maintains competitive predictive performance while offering fully calibrated, evidence-based reasoning[cite: 11, 112].
-
-### Key Findings
-
-  * [cite\_start]**High Predictive Power:** the Bayesian Network achieved an **ROC-AUC of 0.916** [cite: 50][cite\_start], nearly matching the top-performing discriminative model (Logistic Regression, AUC 0.930)[cite: 48, 50, 74, 78].
-  * [cite\_start]**Robust Calibration:** the BN demonstrated superior probability **calibration** [cite: 55, 56] (Brier Score 0.125) [cite\_start][cite: 76, 79][cite\_start], providing highly reliable uncertainty estimates essential for clinical use[cite: 54, 80].
-  * [cite\_start]**White-Box Interpretability:** the model supports transparent, scenario-based probabilistic queries, allowing clinicians to understand *why* a specific risk was assigned[cite: 20, 83, 114].
-
------
-
-## 💻 Methodology
-
-### 1\. Data Preprocessing
-
-[cite\_start]The model was trained on **918 real-world patient records** [cite: 30] [cite\_start]from the Heart Failure Prediction Dataset[cite: 25].
-
-[cite\_start]To align with Bayesian Network requirements and clinical standards, continuous numerical features were converted into **clinically meaningful, interpretable bins** (discretization)[cite: 27, 27].
-
-| Feature | [cite\_start]Example Discretization Bins [cite: 28] |
-| :--- | :--- |
-| **Age** | [cite\_start]{\<40, 40-55, 55-70, $\ge$70} [cite: 32] |
-| **RestingBP** | [cite\_start]{\<120, 120-140, 140-160, $\ge$160} [cite: 33] |
-| **Cholesterol** | [cite\_start]{\<200, 200-240, $\ge$240} [cite: 34] |
-
-### 2\. Bayesian Network (BN) Modeling
-
-[cite\_start]The BN was constructed using the `bnlearn` and `pgmpy` libraries[cite: 39].
-
-  * [cite\_start]**Structure Learning:** We used **Hill-Climbing** with the **Bayesian Information Criterion (BIC)** score to learn the Directed Acyclic Graph (DAG) structure that best explains the dependencies between risk factors[cite: 39].
-  * [cite\_start]**Parameter Learning:** **Bayesian Estimation** with Dirichlet priors was used to estimate the Conditional Probability Distributions (CPDs) for each node[cite: 39, 21].
-
-[cite\_start]The resulting structure explicitly models conditional dependencies between clinical factors[cite: 15, 16]:
-
-[cite\_start]*The BN structure reveals key relationships, such as the strong influence of the **ST\_Slope** ECG result on the **HeartDisease** diagnosis[cite: 40].*
-
-### 3\. Probabilistic Inference & Prediction
-
-The BN was evaluated by computing the posterior probability:
-
-[cite\_start]$$P(\text{HeartDisease} = 1 \mid \text{evidence})$$ [cite: 19, 86, 90]
-
-[cite\_start]for each patient in the test set using **Variable Elimination**[cite: 43].
-
------
-
-## 📈 Results and Evaluation
-
-### [cite\_start]Model Performance Metrics [cite: 60]
-
-The BN proved highly competitive, particularly in terms of probabilistic reliability.
-
-| [cite\_start]Model [cite: 61] | [cite\_start]ROC-AUC (Discrimination) [cite: 62] | [cite\_start]Accuracy [cite: 63] | [cite\_start]Brier Score (Calibration Error) [cite: 64] |
-| :--- | :--- | :--- | :--- |
-| [cite\_start]**Logistic Regression** [cite: 65] | [cite\_start]0.930 [cite: 66] | [cite\_start]0.886 [cite: 67] | [cite\_start]N/A [cite: 68] |
-| [cite\_start]**Decision Tree (Max Depth 4)** [cite: 69] | [cite\_start]0.870 [cite: 70] | [cite\_start]0.804 [cite: 71] | [cite\_start]N/A [cite: 72] |
-| [cite\_start]**Bayesian Network** [cite: 73] | [cite\_start]0.916 [cite: 74] | [cite\_start]N/A [cite: 75] | [cite\_start]**0.125** [cite: 76] |
-
-[cite\_start]**Conclusion:** The BN (0.916 AUC) is robust and maintains high discrimination[cite: 78]. [cite\_start]The low Brier Score (0.125) confirms the BN's probabilities are highly reliable[cite: 79]. [cite\_start]The BN offers the best blend of predictive power and statistical reliability/interpretability[cite: 80].
-
-### [cite\_start]Discrimination (ROC Curve) [cite: 44]
-
-[cite\_start]The ROC curve shows the BN's (green line) ability to rank patients by risk is significantly better than the Decision Tree and close to the Logistic Regression model[cite: 46].
-
-### [cite\_start]Calibration (Calibration Curve) [cite: 53]
-
-[cite\_start]The calibration curve demonstrates the BN's superior ability to provide reliable probability estimates[cite: 55]. [cite\_start]The BN (green line) tracks the **"Perfect"** line (dashed black) more closely than the Decision Tree (orange) and exhibits highly stable calibration[cite: 56].
-
-### [cite\_start]Interpretable Clinical Queries [cite: 82]
-
-[cite\_start]The BN's structure allows for transparent, scenario-based inference, directly supporting clinician trust[cite: 83].
-
-### Scenario 1: Elderly with Symptoms
-
-* [cite_start]**Evidence:** $\text{Age} \ge 70$ AND $\text{Exercise Angina} = Y$ [cite: 85]
-* [cite_start]$P(\text{HeartDisease} = 1 \mid \text{Evidence}) = 0.588$ [cite: 86]
-* [cite_start]*(Query shows a high likelihood of disease given the compounded risk factors.)* [cite: 87]
+*A Transparent and Probabilistic Approach to Clinical Decision Support*
 
 ---
 
-### Scenario 2: Young, Healthy ECG
+## 📘 **Overview**
 
-* [cite_start]**Evidence:** $\text{Age} < 40$ AND $\text{ST\_Slope} = \text{Up}$ AND $\text{Oldpeak} \le 0$ [cite: 89]
-* [cite_start]$P(\text{HeartDisease} = 1 \mid \text{Evidence}) = 0.265$ [cite: 90]
-* [cite_start]*(Protective factors significantly lower the estimated risk, providing transparent justification.)* [cite: 91]
+This project applies **Bayesian Networks (BNs)** to heart disease risk prediction using the **Heart Failure Prediction Dataset**. In clinical settings—where decisions are high-stakes—BNs offer **interpretability**, **transparent reasoning**, and **uncertainty quantification**, which traditional black-box models often lack.
+
+### 🔍 **Key Findings**
+
+* **High Predictive Power**
+  BN achieves **ROC-AUC: 0.916**, nearly matching Logistic Regression (0.930).
+
+* **Superior Calibration**
+  Brier Score **0.125**, indicating highly reliable probability estimates.
+
+* **White-Box Interpretability**
+  The BN supports conditional queries and scenario reasoning, explaining *why* risks are assigned.
 
 ---
 
+## 🛠️ **Methodology**
 
-## ✨ Generative AI Application: Synthetic Data
+### **1. Data Preprocessing**
 
-[cite\_start]As a generative model, the BN can simulate realistic patient data, a key application in ADSP[cite: 93, 94].
+* Dataset contains **918 patient records**.
+* Continuous features are discretized into **clinically interpretable bins**.
 
-### [cite\_start]Conditional Sampling [cite: 95]
+| Feature         | Example Bins                 |
+| --------------- | ---------------------------- |
+| **Age**         | <40, 40–55, 55–70, ≥70       |
+| **RestingBP**   | <120, 120–140, 140–160, ≥160 |
+| **Cholesterol** | <200, 200–240, ≥240          |
 
-[cite\_start]We generated 1,000 synthetic patient profiles conditioned on evidence (e.g., $\text{Age} \ge 70$) to model specific patient cohorts[cite: 96].
+---
 
-  * **Code Snippet:**
-    ````python
-    sampler = BayesianModelSampling(bn)
-    synthetic_data = sampler.rejection_sample(
-        evidence=[('Age_bin', '>=70')],
-        size=1000
-    )
-    # Estimated P(HeartDisease=1 | Age_bin>=70) from samples ≈ 0.502
-    [cite_start]``` [cite: 97, 98, 99, 100, 101, 104]
+### **2. Bayesian Network Modeling**
 
-    ````
-  * [cite\_start]**Validation:** The empirical risk (47.6%) derived from the samples aligned with the analytical inference results[cite: 104, 107].
+Built using **bnlearn** and **pgmpy**:
 
-### Utility
+* **Structure Learning:** Hill-Climbing + BIC
+* **Parameter Learning:** Bayesian estimation with Dirichlet priors
+* The final DAG captures clinically meaningful dependencies (e.g., **ST_Slope → HeartDisease**).
 
-  * [cite\_start]**Research Utility:** Augmenting small datasets for rare subgroups[cite: 105].
-  * [cite\_start]**Privacy Utility:** Sharing statistical properties of patient data without exposing real PHI (Protected Health Information)[cite: 106].
+---
 
------
+### **3. Probabilistic Inference**
 
-## 🚀 Conclusion
+For each patient, the BN computes:
 
-[cite\_start]The Bayesian Network is the optimal model for this high-stakes task[cite: 112]. It provides an unparalleled combination of:
+[
+P(\text{HeartDisease}=1 \mid \text{evidence})
+]
 
-1.  [cite\_start]**Performance** (AUC 0.916, Brier 0.125) [cite: 113]
-2.  [cite\_start]**Interpretability** (Supports exact probabilistic queries) [cite: 114]
-3.  [cite\_start]**Generative AI** (Demonstrates utility in synthetic data generation) [cite: 115]
+Inference performed via **Variable Elimination**.
+
+---
+
+## 📈 **Results**
+
+### **Model Comparison**
+
+| Model                   | ROC-AUC   | Accuracy | Brier Score |
+| ----------------------- | --------- | -------- | ----------- |
+| Logistic Regression     | **0.930** | 0.886    | —           |
+| Decision Tree (Depth=4) | 0.870     | 0.804    | —           |
+| **Bayesian Network**    | **0.916** | —        | **0.125**   |
+
+👉 **BN = Best balance of interpretability + calibrated probabilistic performance**
+
+---
+
+### **ROC Curve**
+
+BN discrimination is close to Logistic Regression and better than Decision Trees.
+
+### **Calibration Curve**
+
+BN probabilities follow the perfect-calibration line more closely than other models.
+
+---
+
+## 🔎 **Interpretable Clinical Queries**
+
+### **Scenario 1 — High-Risk Case**
+
+* **Evidence:** Age ≥ 70 AND Exercise Angina = Yes
+* **Result:** (P(\text{HeartDisease}=1) = 0.588)
+* **Interpretation:** Combined risk factors significantly elevate risk.
+
+---
+
+### **Scenario 2 — Low-Risk Case**
+
+* **Evidence:** Age < 40 AND ST_Slope = Up AND Oldpeak ≤ 0
+* **Result:** (P(\text{HeartDisease}=1) = 0.265)
+* **Interpretation:** Protective ECG features reduce estimated risk.
+
+---
+
+## 🤖 **Generative AI Application**
+
+### **Synthetic Data Generation**
+
+Bayesian Networks also support conditional sampling:
+
+```python
+sampler = BayesianModelSampling(bn)
+synthetic_data = sampler.rejection_sample(
+    evidence=[('Age_bin', '>=70')],
+    size=1000
+)
+```
+
+* Synthetic cohort aligns with analytical inference
+* Useful for:
+
+  * Augmenting rare subgroups
+  * Privacy-preserving data sharing
+  * Scenario planning
+
+---
+
+## 🚀 **Conclusion**
+
+The Bayesian Network provides:
+
+✔ **Strong Performance** – AUC 0.916, Brier 0.125
+✔ **Full Interpretability** – Clinician-friendly reasoning
+✔ **Generative Power** – Synthetic data for simulation & analysis
+
+BNs are a **transparent, reliable, and clinically aligned** alternative to black-box models for medical decision support.
+
+---
