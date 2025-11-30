@@ -77,19 +77,22 @@ The BN proved highly competitive, particularly in terms of probabilistic reliabi
 
 [cite\_start]The BN's structure allows for transparent, scenario-based inference, directly supporting clinician trust[cite: 83].
 
-  * [cite\_start]**Scenario 1: Elderly with Symptoms**[cite: 84]:
+### Scenario 1: Elderly with Symptoms
 
-      * [cite\_start]Evidence: $\text{Age} \ge 70$ AND $\text{Exercise Angina} = Y$ [cite: 85]
-      * [cite\_start]$P(\text{HeartDisease} = 1 \mid \text{Evidence}) = 0.588$ [cite: 86]
-      * [cite\_start]*(Query shows a high likelihood of disease given the compounded risk factors.)* [cite: 87]
+* [cite_start]**Evidence:** $\text{Age} \ge 70$ AND $\text{Exercise Angina} = Y$ [cite: 85]
+* [cite_start]$P(\text{HeartDisease} = 1 \mid \text{Evidence}) = 0.588$ [cite: 86]
+* [cite_start]*(Query shows a high likelihood of disease given the compounded risk factors.)* [cite: 87]
 
-  * [cite\_start]**Scenario 2: Young, Healthy ECG**[cite: 88]:
+---
 
-      * [cite\_start]Evidence: $\text{Age} < 40$ AND $\text{ST_Slope} = \text{Up}$ AND $\text{Oldpeak} \le 0$ [cite: 89]
-      * [cite\_start]$P(\text{HeartDisease} = 1 \mid \text{Evidence}) = 0.265$ [cite: 90]
-      * [cite\_start]*(Protective factors significantly lower the estimated risk, providing transparent justification.)* [cite: 91]
+### Scenario 2: Young, Healthy ECG
 
------
+* [cite_start]**Evidence:** $\text{Age} < 40$ AND $\text{ST\_Slope} = \text{Up}$ AND $\text{Oldpeak} \le 0$ [cite: 89]
+* [cite_start]$P(\text{HeartDisease} = 1 \mid \text{Evidence}) = 0.265$ [cite: 90]
+* [cite_start]*(Protective factors significantly lower the estimated risk, providing transparent justification.)* [cite: 91]
+
+---
+
 
 ## ✨ Generative AI Application: Synthetic Data
 
