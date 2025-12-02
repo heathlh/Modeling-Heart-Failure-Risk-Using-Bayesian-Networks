@@ -78,6 +78,7 @@ Inference performed via **Variable Elimination**.
 BN discrimination is close to Logistic Regression and better than Decision Trees.
 
 <img width="1506" height="1380" alt="85c11b6c-a354-489e-8380-508a01624267" src="https://github.com/user-attachments/assets/e838aa57-c8c5-4909-a70c-f5262d62c823" />
+
 ### **Calibration Curve**
 
 BN probabilities follow the perfect-calibration line more closely than other models.
