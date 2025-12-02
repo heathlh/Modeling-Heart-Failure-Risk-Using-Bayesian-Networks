@@ -43,6 +43,7 @@ Built using **bnlearn** and **pgmpy**:
 * **Structure Learning:** Hill-Climbing + BIC
 * **Parameter Learning:** Bayesian estimation with Dirichlet priors
 * The final DAG captures clinically meaningful dependencies (e.g., **ST_Slope → HeartDisease**).
+<img width="1620" height="1608" alt="babac1bc-6bff-426a-bb65-07c4dacee4e2" src="https://github.com/user-attachments/assets/5c2c1cd9-0fbf-4f74-bf13-fc5729424304" />
 
 ---
 
