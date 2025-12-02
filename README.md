@@ -70,8 +70,6 @@ Inference performed via **Variable Elimination**.
 | **Bayesian Network**    | **0.916** | —        | **0.125**   |
 
 **BN = Best balance of interpretability + calibrated probabilistic performance**
-<img width="1506" height="1380" alt="85c11b6c-a354-489e-8380-508a01624267" src="https://github.com/user-attachments/assets/e838aa57-c8c5-4909-a70c-f5262d62c823" />
-<img width="1490" height="1380" alt="eb733405-c81c-4803-94fc-d3d1d37798e6" src="https://github.com/user-attachments/assets/22bfb8ed-1d0f-45e7-9391-15bffd25408e" />
 
 ---
 
@@ -79,10 +77,12 @@ Inference performed via **Variable Elimination**.
 
 BN discrimination is close to Logistic Regression and better than Decision Trees.
 
+<img width="1506" height="1380" alt="85c11b6c-a354-489e-8380-508a01624267" src="https://github.com/user-attachments/assets/e838aa57-c8c5-4909-a70c-f5262d62c823" />
 ### **Calibration Curve**
 
 BN probabilities follow the perfect-calibration line more closely than other models.
 
+<img width="1490" height="1380" alt="eb733405-c81c-4803-94fc-d3d1d37798e6" src="https://github.com/user-attachments/assets/22bfb8ed-1d0f-45e7-9391-15bffd25408e" />
 ---
 
 ## **Interpretable Clinical Queries**
