@@ -1,14 +1,14 @@
-# 🩺 **Modeling Heart Failure Risk Using Bayesian Networks**
+# **Modeling Heart Failure Risk Using Bayesian Networks**
 
 *A Transparent and Probabilistic Approach to Clinical Decision Support*
 
 ---
 
-## 📘 **Overview**
+## **Overview**
 
 This project applies **Bayesian Networks (BNs)** to heart disease risk prediction using the **Heart Failure Prediction Dataset**. In clinical settings—where decisions are high-stakes—BNs offer **interpretability**, **transparent reasoning**, and **uncertainty quantification**, which traditional black-box models often lack.
 
-### 🔍 **Key Findings**
+### **Key Findings**
 
 * **High Predictive Power**
   BN achieves **ROC-AUC: 0.916**, nearly matching Logistic Regression (0.930).
@@ -21,7 +21,7 @@ This project applies **Bayesian Networks (BNs)** to heart disease risk predictio
 
 ---
 
-## 🛠️ **Methodology**
+## **Methodology**
 
 ### **1. Data Preprocessing**
 
@@ -58,7 +58,7 @@ Inference performed via **Variable Elimination**.
 
 ---
 
-## 📈 **Results**
+## **Results**
 
 ### **Model Comparison**
 
@@ -68,7 +68,7 @@ Inference performed via **Variable Elimination**.
 | Decision Tree (Depth=4) | 0.870     | 0.804    | —           |
 | **Bayesian Network**    | **0.916** | —        | **0.125**   |
 
-👉 **BN = Best balance of interpretability + calibrated probabilistic performance**
+**BN = Best balance of interpretability + calibrated probabilistic performance**
 
 ---
 
@@ -82,7 +82,7 @@ BN probabilities follow the perfect-calibration line more closely than other mod
 
 ---
 
-## 🔎 **Interpretable Clinical Queries**
+## **Interpretable Clinical Queries**
 
 ### **Scenario 1 — High-Risk Case**
 
@@ -100,7 +100,7 @@ BN probabilities follow the perfect-calibration line more closely than other mod
 
 ---
 
-## 🤖 **Generative AI Application**
+## **Generative AI Application**
 
 ### **Synthetic Data Generation**
 
@@ -123,7 +123,7 @@ synthetic_data = sampler.rejection_sample(
 
 ---
 
-## 🚀 **Conclusion**
+## **Conclusion**
 
 The Bayesian Network provides:
 
