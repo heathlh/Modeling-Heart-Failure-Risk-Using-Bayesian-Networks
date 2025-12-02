@@ -51,7 +51,7 @@ Built using **bnlearn** and **pgmpy**:
 For each patient, the BN computes:
 
 [
-P(\text{HeartDisease}=1 \mid \text{evidence})
+P(HeartDisease=1 \mid \evidence)
 ]
 
 Inference performed via **Variable Elimination**.
@@ -87,7 +87,7 @@ BN probabilities follow the perfect-calibration line more closely than other mod
 ### **Scenario 1 — High-Risk Case**
 
 * **Evidence:** Age ≥ 70 AND Exercise Angina = Yes
-* **Result:** (P(\text{HeartDisease}=1) = 0.588)
+* **Result:** (P(HeartDisease=1) = 0.588)
 * **Interpretation:** Combined risk factors significantly elevate risk.
 
 ---
@@ -95,7 +95,7 @@ BN probabilities follow the perfect-calibration line more closely than other mod
 ### **Scenario 2 — Low-Risk Case**
 
 * **Evidence:** Age < 40 AND ST_Slope = Up AND Oldpeak ≤ 0
-* **Result:** (P(\text{HeartDisease}=1) = 0.265)
+* **Result:** (P(HeartDisease=1) = 0.265)
 * **Interpretation:** Protective ECG features reduce estimated risk.
 
 ---
